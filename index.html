@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101125" />
+  <meta name="description" content="Una aventura romántica e interactiva para celebrar ocho meses de amor." />
+  <title>8 meses, un infinito contigo ♡</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="sky" id="sky" aria-hidden="true"></div>
+  <div class="aura aura-one" aria-hidden="true"></div>
+  <div class="aura aura-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio" id="brand" aria-label="Volver al inicio">
+      <span class="brand-symbol">✧</span><span>nuestro <strong>infinito</strong></span>
+    </a>
+    <div class="header-right">
+      <div class="chapter-display"><span class="tiny-label">CAPÍTULO</span> <strong id="chapter-count">01 / 05</strong></div>
+      <button type="button" class="music-toggle" id="music-toggle" aria-expanded="false" aria-controls="music-panel"><span id="music-icon">♫</span> <span>Música</span></button>
+    </div>
+  </header>
+
+  <div class="progress-track" role="progressbar" aria-label="Progreso de la aventura" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1" id="progress-track"><span id="progress-fill"></span></div>
+
+  <aside class="music-panel hidden" id="music-panel" aria-label="Reproductor musical">
+    <div class="music-head"><span class="eyebrow">NUESTRA BANDA SONORA</span><button id="music-close" type="button" class="icon-button" aria-label="Cerrar reproductor">×</button></div>
+    <p class="music-current" id="music-current">Can't Help Falling in Love</p>
+    <p class="music-artist-note">Las mismas canciones de nuestro séptimo mes ♡</p>
+    <div class="music-buttons"><button id="music-play" class="secondary-button" type="button">▶ Reproducir</button><label class="volume-label" for="music-volume">Volumen <input type="range" id="music-volume" min="0" max="1" value="0.55" step="0.05" /></label></div>
+    <div class="track-list" id="track-list"></div>
+    <p id="music-message" class="music-message" aria-live="polite">La música empezará sola si el navegador lo permite; si no, se activará al comenzar la aventura. Añade los MP3 a la carpeta indicada.</p>
+  </aside>
+
+  <main>
+    <section class="scene active" id="scene-0" aria-labelledby="hero-title">
+      <div class="scene-inner intro-grid">
+        <div class="intro-copy">
+          <div class="eyebrow"><span class="sparkle">✧</span> PARA LA PERSONA MÁS BONITA DE MI UNIVERSO</div>
+          <div class="eyebrow-sub">Un lugar que existe solo para ti y para mí.</div>
+          <h1 id="hero-title">Ocho meses,<br><em>un infinito</em><br>contigo<span class="pink-dot">.</span></h1>
+          <p class="lead">Hay historias que se escriben con palabras. La nuestra, con pequeños momentos que se vuelven eternos. Hoy quiero regalarte un pedacito de nuestro universo.</p>
+          <button type="button" id="begin-button" class="primary-button">Comenzar nuestra aventura <span aria-hidden="true">↗</span></button>
+          <p class="hint-text"><span aria-hidden="true">✦</span> Una sorpresa hecha con todo mi corazón</p>
+        </div>
+        <div class="intro-art" aria-hidden="true">
+          <div class="orbit orbit-back"></div><div class="orbit orbit-front"></div>
+          <div class="orb orb-one"></div><div class="orb orb-two"></div>
+          <div class="planet"><span class="planet-shine"></span><span class="planet-heart">♡</span></div>
+          <div class="orbit-star orbit-star-a">✦</div><div class="orbit-star orbit-star-b">✶</div><div class="orbit-star orbit-star-c">✧</div>
+          <div class="couple-silhouette"><span class="person person-one"><i></i></span><span class="person person-two"><i></i></span><span class="joined-hands"></span></div>
+          <div class="art-caption"><span>EST. </span><strong>∞</strong><span> CONTIGO</span></div>
+        </div>
+      </div>
+      <div class="scroll-decoration" aria-hidden="true">✧ &nbsp; 08 MESES &nbsp; ✧</div>
+    </section>
+
+    <section class="scene" id="scene-1" aria-labelledby="game-title" hidden>
+      <div class="scene-inner centered">
+        <span class="eyebrow">CAPÍTULO I · LOS RECUERDOS</span>
+        <h2 id="game-title">Cada latido guarda <em>un recuerdo.</em></h2>
+        <p class="scene-description">Recorre nuestro pequeño mundo y encuentra los ocho corazones escondidos. Cada uno guarda una razón por la que me haces feliz.</p>
+        <div class="game-panel">
+          <div class="game-meta"><span>♡ Corazones encontrados</span><strong id="heart-count">0 / 8</strong></div>
+          <div id="playfield" class="playfield" tabindex="0" aria-label="Juego: mueve el personaje con las flechas o WASD; también puedes tocar los corazones">
+            <div class="game-moon" aria-hidden="true"></div>
+            <div class="game-hill hill-one" aria-hidden="true"></div><div class="game-hill hill-two" aria-hidden="true"></div>
+            <div class="game-tree tree-one" aria-hidden="true">✦</div><div class="game-tree tree-two" aria-hidden="true">✦</div>
+            <div class="game-character" id="game-character" aria-label="Tu personaje"><span class="character-head"></span><span class="character-hair"></span><span class="character-body"></span><span class="character-leg leg-one"></span><span class="character-leg leg-two"></span><span class="character-heart">♡</span></div>
+            <div class="memory-pop" id="memory-pop" aria-live="polite" hidden></div>
+          </div>
+          <div class="game-footer">
+            <div class="game-instructions">Usa <kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd> o <strong>WASD</strong>. También puedes tocar cada corazón.</div>
+            <div class="dpad" aria-label="Controles para móvil"><button type="button" class="control control-up" data-direction="up" aria-label="Arriba">↑</button><button type="button" class="control control-left" data-direction="left" aria-label="Izquierda">←</button><button type="button" class="control control-down" data-direction="down" aria-label="Abajo">↓</button><button type="button" class="control control-right" data-direction="right" aria-label="Derecha">→</button></div>
+          </div>
+        </div>
+        <button type="button" id="garden-next" class="primary-button next-button" disabled>Encuentra los ocho corazones ♡</button>
+      </div>
+    </section>
+
+    <section class="scene" id="scene-2" aria-labelledby="garden-title" hidden>
+      <div class="scene-inner centered">
+        <span class="eyebrow">CAPÍTULO II · LO QUE FLORECE</span>
+        <h2 id="garden-title">Todo es más bonito <em>desde que estás.</em></h2>
+        <p class="scene-description">Planta ocho flores, una por cada mes que compartimos. Toca cada maceta para hacer florecer un pequeño mensaje.</p>
+        <div class="garden-counter"><span>FLORES QUE HICISTE CRECER</span><strong id="flower-count">0 de 8</strong></div>
+        <div class="flower-grid" id="flower-grid"></div>
+        <div class="garden-message" id="garden-message" aria-live="polite">Cada flor está esperando un poquito de tu magia ✨</div>
+        <button type="button" id="letter-next" class="primary-button next-button" disabled>Haz florecer las ocho flores ❀</button>
+      </div>
+    </section>
+
+    <section class="scene" id="scene-3" aria-labelledby="letter-title" hidden>
+      <div class="scene-inner letter-layout">
+        <span class="eyebrow">CAPÍTULO III · PALABRAS QUE ABRAZAN</span>
+        <h2 id="letter-title">Hay cosas que solo sabe <em>mi corazón.</em></h2>
+        <p class="scene-description">Esta carta es un abrazo en forma de palabras, para cuando quieras recordar cuánto significas para mí.</p>
+        <div class="letter-paper">
+          <div class="letter-stamp" aria-hidden="true">♡</div>
+          <p class="letter-greeting">Para mi persona favorita:</p>
+          <div id="letter-content" class="letter-content" aria-label="Carta de amor"></div>
+          <p class="letter-signature">Con todo mi amor,<br><strong>Tu persona que te elige siempre ♡</strong></p>
+        </div>
+        <div class="letter-actions"><button type="button" id="letter-reveal" class="text-button">Mostrar carta completa</button><button type="button" id="final-next" class="primary-button">Hay algo más que quiero decirte <span aria-hidden="true">↗</span></button></div>
+      </div>
+    </section>
+
+    <section class="scene" id="scene-4" aria-labelledby="final-title" hidden>
+      <div class="scene-inner ending-layout">
+        <span class="eyebrow">CAPÍTULO IV · UNA PROMESA SIN FINAL</span>
+        <div class="infinity-art" aria-hidden="true"><div class="infinity-line">∞</div><span class="star st-a">✦</span><span class="star st-b">✧</span><span class="star st-c">✶</span><span class="star st-d">✧</span></div>
+        <h2 id="final-title">Si la vida me preguntara otra vez,<br><em>volvería a elegirte.</em></h2>
+        <p class="ending-line">Gracias por estos ocho meses, por ser tú, por quedarte, por cada sonrisa, por cada momento y por todo lo que todavía nos espera.</p>
+        <p class="promise">Ocho meses son solo el comienzo de todos los infinitos que quiero vivir contigo.</p>
+        <div class="ending-emblem">8 <span>♡</span> ∞</div>
+        <button type="button" id="restart" class="secondary-button">Volver al comienzo ↺</button>
+        <p class="tiny-ending">Feliz octavo mes, mi amor. ♡</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>hecho con amor, para ti ♡</span><span>08 · ∞</span></footer>
+  <audio id="music-audio" preload="auto" autoplay loop></audio>
+</body>
+</html>
